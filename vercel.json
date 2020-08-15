@@ -1,0 +1,12 @@
+{
+    "functions": {
+        "api/**/*.[jt]s": {
+            "runtime": "vercel-deno@0.6.3" 
+        }
+    },
+    "build": {
+      "env": {
+        "DENO_TSCONFIG": "api/tsconfig.json"
+      }
+    }
+}
