@@ -22,14 +22,18 @@
 </style>
 
 <script>
-    import { onMount } from "svelte";
-    export let date;
+    import { onMount } from "svelte"
+    export let date, local
+    
+    const params = (new URL(location)).searchParams
+    local = params.get("local")
 
     onMount(async () => {
-        const res = await fetch("/api/date");
-        const newDate = await res.text();
-        date = newDate;
-    });
+
+        const res = await fetch("/api/date")
+        const newDate = await res.text()
+        date = newDate
+    })
 </script>
 
 <main>
@@ -37,6 +41,10 @@
         <h1>한눈에</h1>
     </header>
     <section>
+        <local>
+            <img src="https://raw.githubusercontent.com/gnlow/jijache/master/logo/{local}.png" alt="" />
+        </local>
+        
         <p>{date ? date : 'Loading date...'}</p>
     </section>
 </main>
