@@ -5,8 +5,14 @@
         }
     },
     "build": {
-      "env": {
-        "DENO_TSCONFIG": "api/tsconfig.json"
-      }
-    }
+        "env": {
+            "DENO_TSCONFIG": "api/tsconfig.json"
+        }
+    },
+    "rewrites": [
+        {
+            "source": "/api/local/:local",
+            "destination": "/api/local"
+        }
+    ]
 }
