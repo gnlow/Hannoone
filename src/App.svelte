@@ -1,4 +1,10 @@
 <style>
+    @font-face {
+        font-family: "62570";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/62570체.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+    }
     main {
         font-family: sans-serif;
         margin: 0 auto;
@@ -19,6 +25,11 @@
         box-shadow: 0 5px 20px rgba(0, 0, 0, 16%);
         margin: 50px;
     }
+    .name {
+        font-family: "62570";
+        font-size: 3em;
+        margin: 0;
+    }
 </style>
 
 <script>
@@ -30,7 +41,7 @@
     local = params.get("local")
 
     onMount(async () => {
-        localInfo = await fetch("/api/local/강원").then(x => x.json())
+        localInfo = await fetch(`/api/local/${local}`).then(x => x.json())
     })
 </script>
 
@@ -43,7 +54,9 @@
             <img src="https://raw.githubusercontent.com/gnlow/jijache/master/logo/{local}.png" alt="" />
         </local>
             <Load condition={localInfo}>
-                {localInfo?.name || "로딩"}
+                <h1 class="name">
+                    {localInfo?.name || "로딩"}
+                </h1>
             </Load>
     </section>
 </main>
