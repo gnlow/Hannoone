@@ -24,6 +24,15 @@
         border-radius: 30px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 16%);
         margin: 50px;
+
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+    local {
+        grid-column: 1;
+    }
+    chart {
+        grid-column: 2;
     }
     .name {
         font-family: "62570";
@@ -52,11 +61,19 @@
     <section>
         <local>
             <img src="https://raw.githubusercontent.com/gnlow/jijache/master/logo/{local}.png" alt="" />
-        </local>
             <Load condition={localInfo}>
                 <h1 class="name">
-                    {localInfo?.name || "로딩"}
+                    {#if localInfo}
+                        {localInfo.name}{localInfo.type[localInfo.type.length - 1]}
+                    {:else}
+                        로딩중
+                    {/if}
+                    
                 </h1>
             </Load>
+        </local>
+        <chart>
+            Chart
+        </chart>
     </section>
 </main>
