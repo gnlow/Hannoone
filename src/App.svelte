@@ -23,16 +23,13 @@
 
 <script>
     import { onMount } from "svelte"
-    export let date, local
+    export let local, localInfo
     
     const params = (new URL(location)).searchParams
     local = params.get("local")
 
     onMount(async () => {
-
-        const res = await fetch("/api/date")
-        const newDate = await res.text()
-        date = newDate
+        localInfo = await fetch("/api/local/강원").then(x => x.json())
     })
 </script>
 
@@ -44,7 +41,11 @@
         <local>
             <img src="https://raw.githubusercontent.com/gnlow/jijache/master/logo/{local}.png" alt="" />
         </local>
+        {#if localInfo}
+            <p>{localInfo.name}</p>
+        {:else}
+            <p>Loading...</p>
+        {/if}
         
-        <p>{date ? date : 'Loading date...'}</p>
     </section>
 </main>
