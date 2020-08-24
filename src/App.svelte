@@ -23,6 +23,7 @@
 
 <script>
     import { onMount } from "svelte"
+    import Load from "./Load.svelte"
     export let local, localInfo
     
     const params = (new URL(location)).searchParams
@@ -41,11 +42,8 @@
         <local>
             <img src="https://raw.githubusercontent.com/gnlow/jijache/master/logo/{local}.png" alt="" />
         </local>
-        {#if localInfo}
-            <p>{localInfo.name}</p>
-        {:else}
-            <p>Loading...</p>
-        {/if}
-        
+            <Load condition={localInfo}>
+                {localInfo?.name || "로딩"}
+            </Load>
     </section>
 </main>
