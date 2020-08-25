@@ -33,6 +33,7 @@
     }
     chart {
         grid-column: 2;
+        font-family: "62570";
     }
     .name {
         font-family: "62570";
@@ -44,6 +45,7 @@
 <script>
     import { onMount } from "svelte"
     import Load from "./Load.svelte"
+    import Chart from "./Chart.svelte"
     export let local, localInfo
     
     const params = (new URL(location)).searchParams
@@ -73,7 +75,7 @@
             </Load>
         </local>
         <chart>
-            Chart
+            <Chart/>
         </chart>
     </section>
 </main>

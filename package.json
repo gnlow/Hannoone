@@ -12,7 +12,9 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
-    "sirv-cli": "^1.0.1"
+    "parliament-svg": "^2.1.4",
+    "sirv-cli": "^1.0.1",
+    "virtual-dom-stringify": "^3.0.1"
   },
   "scripts": {
     "build": "rollup -c",
