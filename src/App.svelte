@@ -46,13 +46,13 @@
     }
 </style>
 
-<script>
+<script lang="typescript">
     import { onMount } from "svelte"
     import Load from "./Load.svelte"
     import Chart from "./Chart.svelte"
     export let local, localInfo
     
-    const params = (new URL(location)).searchParams
+    const params = (new URL(location.toString())).searchParams
     local = params.get("local")
 
     onMount(async () => {

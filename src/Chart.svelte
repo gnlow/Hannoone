@@ -1,7 +1,7 @@
-<script>
+<script lang="typescript">
     export let width, height
     import parliamentSVG from "parliament-svg"
-    import toStr from "virtual-dom-stringify"
+    import toHTML from "vdom-to-html"
     const vdom = parliamentSVG({
         "linke": {
             "seats": 6,
@@ -23,7 +23,7 @@
     delete vdom.children[vdom.children.length - 1].properties.style["font-family"]
     vdom.properties.width = width
     vdom.properties.height = height
-    const chart = toStr(vdom)
+    const chart = toHTML(vdom)
     
 </script>
 

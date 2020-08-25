@@ -33,7 +33,7 @@
         }
     }
 </style>
-<script>
+<script lang="typescript">
     export let condition = false;
 </script>
 <div class="{condition ? "" : "placeholder-item"}">
