@@ -1,4 +1,5 @@
 <script>
+    export let width, height
     import parliamentSVG from "parliament-svg"
     import toStr from "virtual-dom-stringify"
     const vdom = parliamentSVG({
@@ -20,6 +21,8 @@
         }
     }, true)
     delete vdom.children[vdom.children.length - 1].properties.style["font-family"]
+    vdom.properties.width = width
+    vdom.properties.height = height
     const chart = toStr(vdom)
     
 </script>

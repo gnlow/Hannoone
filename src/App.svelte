@@ -27,18 +27,22 @@
 
         display: grid;
         grid-template-columns: 30% 70%;
+        grid-template-rows: 200px;
     }
     local {
         grid-column: 1;
-    }
-    chart {
-        grid-column: 2;
-        font-family: "62570";
+        grid-row: 1;
     }
     .name {
         font-family: "62570";
         font-size: 3em;
         margin: 0;
+    }
+    chart {
+        grid-column: 2;
+        grid-row: 1;
+        font-family: "62570";
+        text-align: center;
     }
 </style>
 
@@ -75,7 +79,7 @@
             </Load>
         </local>
         <chart>
-            <Chart/>
+            <Chart height="150px" />
         </chart>
     </section>
 </main>
