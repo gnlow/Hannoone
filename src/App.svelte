@@ -79,7 +79,13 @@
             </Load>
         </local>
         <chart>
-            <Chart height="150px" />
+            <Load condition={localInfo}>
+                {#if localInfo}
+                    <Chart height="150px" data={localInfo.members} />
+                {:else}
+                    <svg/>
+                {/if}
+            </Load>
         </chart>
     </section>
 </main>
