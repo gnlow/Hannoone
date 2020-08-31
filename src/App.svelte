@@ -44,12 +44,17 @@
         font-family: "62570";
         text-align: center;
     }
+    members {
+        grid-column: 1 / 3;
+    }
 </style>
 
 <script lang="typescript">
     import { onMount } from "svelte"
     import Load from "./Load.svelte"
     import Chart from "./Chart.svelte"
+    import Members from "./Members.svelte"
+
     export let local, localInfo
     
     const params = (new URL(location.toString())).searchParams
@@ -87,5 +92,10 @@
                 {/if}
             </Load>
         </chart>
+        <members>
+            {#if localInfo}
+                <Members localInfo={localInfo}/>
+            {/if}
+        </members>
     </section>
 </main>
