@@ -57,6 +57,6 @@ export default {
     "공석": {
         color: {
             primary: "#ffffff",
-            text: "#fff",
+            text: "#CCC",
         }},
 }
